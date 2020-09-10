@@ -8,13 +8,17 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: b3691c8ccdb971ed65e131adf267edc01011554097e7e81910c11ea08a24695e
+  patches:
+    - remove-mingw32.patch
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
+  build:
+    - m2-patch  # [win]
   host:
     - python
     - pip

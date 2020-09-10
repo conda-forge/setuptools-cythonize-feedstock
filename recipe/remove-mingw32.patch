@@ -1,0 +1,21 @@
+commit bb04710fb26f685ec9e2395b907c101ab7103772
+Author: Tom Schoonjans <Tom.Schoonjans@rfi.ac.uk>
+Date:   Thu Sep 10 10:12:32 2020 +0100
+
+    Do not set compiler to mingw32 on Windows
+
+diff --git a/setuptools_cythonize.py b/setuptools_cythonize.py
+index a921736..b97c919 100644
+--- a/setuptools_cythonize.py
++++ b/setuptools_cythonize.py
+@@ -55,10 +55,6 @@ class CythonizeBuild(build, object):  # 'object' inheritance permits @property u
+     def finalize_options(self):
+         build.finalize_options(self)
+ 
+-        if not self.compiler and platform.system() == 'Windows':
+-            log.warn("No compiler provided, set it to mingw32 as default")
+-            self.compiler = 'mingw32'
+-
+ 
+ class CythonizeBuildPy(build_py):
+ 
