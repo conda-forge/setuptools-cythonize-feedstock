@@ -8,8 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 5ed4893538cc79db1a24df3d66c4b7c384d377afec6549c1eb1e4d0f89ade0e1
-  patches:
-    - remove-mingw32.patch
 
 build:
   noarch: python
@@ -17,8 +15,6 @@ build:
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
-  build:
-    - m2-patch  # [win]
   host:
     - python
     - pip
@@ -38,7 +34,6 @@ about:
   home: https://github.com/anxuae/setuptools-cythonize
   license: MIT
   license_family: MIT
-  # license file manually packaged. Please see https://github.com/anxuae/setuptools-cythonize/pull/4
   license_file: LICENSE
   summary: distutils classes to compile Python source code into C code using Cython
 
