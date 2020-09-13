@@ -1,5 +1,5 @@
 {% set name = "setuptools-cythonize" %}
-{% set version = "1.0.5" %}
+{% set version = "1.0.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b3691c8ccdb971ed65e131adf267edc01011554097e7e81910c11ea08a24695e
+  sha256: 5ed4893538cc79db1a24df3d66c4b7c384d377afec6549c1eb1e4d0f89ade0e1
   patches:
     - remove-mingw32.patch
 
 build:
   noarch: python
-  number: 1
-  script: "{{ PYTHON }} -m pip install . -vv"
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -40,7 +40,7 @@ about:
   license_family: MIT
   # license file manually packaged. Please see https://github.com/anxuae/setuptools-cythonize/pull/4
   license_file: LICENSE
-  summary: 'distutils classes to compile Python source code into C code using Cython'
+  summary: distutils classes to compile Python source code into C code using Cython
 
 extra:
   recipe-maintainers:
