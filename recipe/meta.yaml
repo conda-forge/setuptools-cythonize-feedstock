@@ -20,6 +20,7 @@ requirements:
     - pip
     - wheel
     - cython
+    - setuptools
   run:
     - python >={{ python_min }}
     - wheel
